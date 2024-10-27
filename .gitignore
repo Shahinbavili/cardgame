@@ -36,3 +36,23 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+*.log
+*.tmp
+*.temp
+*~
+.directory
+Thumbs.db
+ehthumbs.db
+.idea/
+out/
+.mvn/
+*.class
+*.jar
+*.war
+*.ear
+/bin/
+/build/
+.gradle/
+mvnw*
+
