@@ -44,6 +44,7 @@ build/
 .directory
 Thumbs.db
 ehthumbs.db
+
 .idea/
 out/
 .mvn/
