@@ -4,7 +4,7 @@ import com.shahin.cardgame.games.GameEvaluator;
 import com.shahin.cardgame.model.Deck;
 import com.shahin.cardgame.model.Player;
 import com.shahin.cardgame.model.PlayingCard;
-import com.shahin.cardgame.view.CommandLineView;
+import com.shahin.cardgame.view.GameViewable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +19,11 @@ public class GameController {
     Deck deck;
     List<Player> players;
     Player winner;
-    CommandLineView view;
+    GameViewable view;
     GameState gameState;
     GameEvaluator evaluator;
 
-    public GameController(Deck deck, CommandLineView view, GameEvaluator gameEvaluator) {
+    public GameController(Deck deck, GameViewable view, GameEvaluator gameEvaluator) {
         super();
         this.deck = deck;
         this.view = view;
