@@ -4,12 +4,13 @@ import com.shahin.cardgame.games.GameEvaluator;
 import com.shahin.cardgame.model.Deck;
 import com.shahin.cardgame.model.Player;
 import com.shahin.cardgame.model.PlayingCard;
-import com.shahin.cardgame.view.View;
+import com.shahin.cardgame.view.CommandLineView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
+
 
     enum GameState {
         AddingPlayers, CardsDealt, WinnerRevealed;
@@ -18,15 +19,17 @@ public class GameController {
     Deck deck;
     List<Player> players;
     Player winner;
-    View view;
+    CommandLineView view;
     GameState gameState;
+    GameEvaluator evaluator;
 
-    public GameController(Deck deck, View view) {
+    public GameController(Deck deck, CommandLineView view, GameEvaluator gameEvaluator) {
         super();
         this.deck = deck;
         this.view = view;
         this.players = new ArrayList<Player>();
         this.gameState = GameState.AddingPlayers;
+        this.evaluator = gameEvaluator;
         view.setController(this);
 
     }
@@ -79,7 +82,7 @@ public class GameController {
     }
 
     void evaluateWinner() {
-        winner = new GameEvaluator().evaluateWinner(players);
+        winner = evaluator.evaluateWinner(players);
     }
 
     void displayWinner() {
@@ -89,6 +92,18 @@ public class GameController {
     void rebuildDeck() {
         for (Player player : players) {
             deck.returnCardToDeck(player.removeCard());
+        }
+    }
+
+    void exitGame() {
+        System.exit(0);
+    }
+
+    public void nextAction(String nextChoice) {
+        if ("+q".equals(nextChoice)) {
+            exitGame();
+        } else {
+            startGame();
         }
     }
 }
