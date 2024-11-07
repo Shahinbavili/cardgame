@@ -6,13 +6,16 @@ import com.shahin.cardgame.model.SmallDeck;
 import com.shahin.cardgame.model.TestDeck;
 
 public class DeckFactory {
-    public enum DeckType{
+    public enum DeckType {
         Normal,
         Small,
         Test
-    };
-    public static Deck createDeck(DeckType deckType){
-        switch (deckType){
+    }
+
+    ;
+
+    public static Deck createDeck(DeckType deckType) {
+        switch (deckType) {
             case Normal -> new NormalDeck();
             case Small -> new SmallDeck();
             case Test -> new TestDeck();

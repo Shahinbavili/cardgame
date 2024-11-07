@@ -1,6 +1,6 @@
 package com.shahin.cardgame.model;
 
-public class PlayingCard {
+public class PlayingCard implements PlayableCard {
     private Rank rank;
     private Suit suit;
     private boolean faceUp;
@@ -24,8 +24,8 @@ public class PlayingCard {
         return faceUp;
     }
 
-    public boolean flip() {
+
+    public void flip() {
         faceUp = !faceUp;
-        return faceUp;
     }
 }

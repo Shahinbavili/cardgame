@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class NormalDeck extends Deck {
     public NormalDeck() {
-        cards = new ArrayList<PlayingCard>();
+        cards = new ArrayList<>();
         for (Rank rank : Rank.values()) {
             for (Suit suit : Suit.values()) {
                 System.out.println
